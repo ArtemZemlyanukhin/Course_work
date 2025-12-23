@@ -35,7 +35,20 @@ double funct(double x)
 	return result;
 }
 
+int table_for_interval(double inter1, double inter2, double step) {
+	if (step <= 0) return 0;
+	printf("\nТаблица:\n");
+	printf("+-----------+-----------+\n");
+	printf("|    x      |   f(x)    |\n");
+	printf("+-----------+-----------+\n");
 
+	for (double x = inter1; x <= inter2; x += step) {
+		printf("| %9.3lf | %9.3lf |\n", x, funct(x));
+	}
+
+	printf("+-----------+-----------+\n");
+	return 1;
+}
 //Вычисление определенного интергала===========================================
 double integral(double a, double b)
 {
@@ -114,7 +127,6 @@ int append_interval_into_file(char* fname, double a, double b, double st) {
 	fprintf(out, "|     x     |    f(x)     |\n");
 	fprintf(out, "+-----------+-------------+\n");
 
-	// Записываем значения
 	for (double i = a; i <= b; i += st) {
 		double value = funct(i);
 		fprintf(out, "| %9.3lf | %11.3lf |\n", i, value);
@@ -124,3 +136,4 @@ int append_interval_into_file(char* fname, double a, double b, double st) {
 	fclose(out);
 	return 1;
 }
+

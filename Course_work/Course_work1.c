@@ -8,7 +8,7 @@ int main()
 {
 	setlocale(LC_CTYPE, "RUS");
 	double H, Result_proizvod;
-	int v;
+	int v,result_interval;
 	double x, x1;
 	double inter1, inter2, step;
 	double intmd1, intmd2, TT2;
@@ -64,6 +64,11 @@ int main()
 			scanf("%lf", &step);
 			if (inter1 > inter2) {
 				printf("Конец интервала меньше начала!\n");
+				break;
+			}
+			result_interval= table_for_interval(inter1, inter2, step);
+			if (result_interval == 0) {
+				printf("Неправильно введён шаг табулирования\n");
 				break;
 			}
 			table_for_interval(inter1, inter2, step);

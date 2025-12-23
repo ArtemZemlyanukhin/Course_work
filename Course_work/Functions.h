@@ -54,12 +54,11 @@ double proizvod(double x);
   * @param x-точка, в которой вычисляется производная
   * @return значение производной в точке x
   */
-int append_to_file(char* fname, double s, double s2);
+int append_to_file(char* fname, double s);
 /**
   * Запись результата вычисления функции в точке в файл
   * @param fname-имя файла
   * @param s-значение аргумента x
-  * @param s2-значение функции f(x)
   * @return 1 при успехе, 0 при ошибке
   */
 int append_interval_into_file(char* fname, double a, double b, double st);

@@ -92,7 +92,7 @@ int main()
 
 			printf("\t\tМетод средних п-угольников:\n");
 			double Result_integral = integral(intmd1, intmd2);
-			printf("Определённый интеграл на интервале [%.3lf:%.3lf] равен== %lf\n", intmd1, intmd2, Result_integral);
+			printf("Определённый интеграл на интервале [%.3lf:%.3lf] равен== %.3lf\n", intmd1, intmd2, Result_integral);
 			break;
 
 
@@ -120,12 +120,6 @@ int main()
 				break;
 			case DECREASING:
 				printf("УБЫВАЕТ\n");
-				break;
-			case NOT_DECREASING:
-				printf("НЕ УБЫВАЕТ\n");
-				break;
-			case NOT_INCREASING:
-				printf("НЕ ВОЗРАСТАЕТ\n");
 				break;
 			case NOT_MONOTON:
 				printf("НЕМОНОТОННА\n");

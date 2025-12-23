@@ -49,7 +49,7 @@ int main()
 			scanf("%lf", &x);
 			double result_f = funct(x);
 			printf("Результат функции в точке %.3lf равен==%.3lf\n", x, result_f);
-			Zap=append_to_file(fname, x, result_f);
+			Zap=append_to_file(fname, x);
 			if(Zap==0)printf("Ошибка открытия файла для записи");
 			else printf("Значение записано в файл %s\n", fname);
 			break;

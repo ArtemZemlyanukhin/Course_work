@@ -8,7 +8,7 @@ int main()
 {
 	setlocale(LC_CTYPE, "RUS");
 	double H, Result_proizvod;
-	int v,result_interval;
+	int v,result_interval,Zap;
 	double x, x1;
 	double inter1, inter2, step;
 	double intmd1, intmd2, TT2;
@@ -49,8 +49,9 @@ int main()
 			scanf("%lf", &x);
 			double result_f = funct(x);
 			printf("Результат функции в точке %.3lf равен==%.3lf\n", x, result_f);
-			append_to_file(fname, x, result_f);
-			printf("Значение записано в файл %s\n", fname);
+			Zap=append_to_file(fname, x, result_f);
+			if(Zap==0)printf("Ошибка открытия файла для записи");
+			else printf("Значение записано в файл %s\n", fname);
 			break;
 
 
@@ -71,9 +72,9 @@ int main()
 				printf("Неправильно введён шаг табулирования\n");
 				break;
 			}
-			table_for_interval(inter1, inter2, step);
-			append_interval_into_file(fname, inter1, inter2, step);
-			printf("Интервал добавлен в файл %s\n", fname);
+			Zap=append_interval_into_file(fname, inter1, inter2, step);
+			if (Zap==0) printf("Ошибка открытия файла для записи");
+			else printf("Интервал добавлен в файл %s\n", fname);
 			break;
 
 

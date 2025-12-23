@@ -103,13 +103,13 @@ double proizvod(double x) {
 	return Pr_res;
 }
 //Запись в файл значения функции в точке
-int append_to_file(char* fname, double s, double s2) {
+int append_to_file(char* fname, double s) {
 	FILE* out;
 	if ((out = fopen(fname, "at")) == NULL) {
 		return 0;
 	}
 
-	fprintf(out, "Результат функции в точке %.3lf равен==%.3lf\n", s, s2);
+	fprintf(out, "Результат функции в точке %.3lf равен==%.3lf\n", s, funct(s));
 	fclose(out);
 	return 1;
 }

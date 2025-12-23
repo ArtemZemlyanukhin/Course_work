@@ -106,7 +106,6 @@ double proizvod(double x) {
 int append_to_file(char* fname, double s, double s2) {
 	FILE* out;
 	if ((out = fopen(fname, "at")) == NULL) {
-		printf("Ошибка открытия файла для записи");
 		return 0;
 	}
 
@@ -118,7 +117,6 @@ int append_to_file(char* fname, double s, double s2) {
 int append_interval_into_file(char* fname, double a, double b, double st) {
 	FILE* out;
 	if ((out = fopen(fname, "at")) == NULL) {
-		printf("Ошибка открытия файла для записи");
 		return 0;
 	}
 	fprintf(out, "\n=== ТАБЛИЦА ЗНАЧЕНИЙ ФУНКЦИИ ===\n");
@@ -127,6 +125,7 @@ int append_interval_into_file(char* fname, double a, double b, double st) {
 	fprintf(out, "|     x     |    f(x)     |\n");
 	fprintf(out, "+-----------+-------------+\n");
 
+	// Записываем значения
 	for (double i = a; i <= b; i += st) {
 		double value = funct(i);
 		fprintf(out, "| %9.3lf | %11.3lf |\n", i, value);

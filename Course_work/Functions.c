@@ -24,13 +24,12 @@ double funct(double x)
 		if (fabs(x) < 1e-5) result = -(-1 + pow(x, 2)) / 2.0;
 		else result = (cos(x) - sin(x)) / x;
 	}
-	if (x >= 0.0) {
-		for (int n = 0; n <= 5; n++)
+	else for (int n = 0; n <= 5; n++)
 		{
 			result += pow(x, 3 * n) / fact[n];
 		}
 
-	}
+	
 
 	return result;
 }
@@ -90,8 +89,6 @@ MONOTONTYPE monoton(double a, double b)
 	if (constant) return CONSTANT;
 	else if (incr && !decr) return INCREASING;
 	else if (decr && !incr) return DECREASING;
-	else if (incr) return NOT_DECREASING;
-	else if (decr) return NOT_INCREASING;
 	else return NOT_MONOTON;
 }
 //Вычисление производной в точке======================================================================

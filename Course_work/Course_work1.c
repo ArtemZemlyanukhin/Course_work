@@ -47,9 +47,9 @@ int main()
 		case 1:
 			printf("Введите значение x:");
 			scanf("%lf", &x);
-			double sd = funct(x);
-			printf("Результат функции в точке %.3lf равен==%.3lf\n", x, sd);
-			append_to_file(fname, x, sd);
+			double result_f = funct(x);
+			printf("Результат функции в точке %.3lf равен==%.3lf\n", x, result_f);
+			append_to_file(fname, x, result_f);
 			printf("Значение записано в файл %s\n", fname);
 			break;
 
@@ -66,11 +66,7 @@ int main()
 				printf("Конец интервала меньше начала!\n");
 				break;
 			}
-			printf("|      x       |        f(x)      |\n");
-			for (double i = inter1; i <= inter2; i += step) {
-				H = funct(i);
-				printf("|  %9.3lf   |    %9.3lf     |\n", i, H);
-			}
+			table_for_interval(inter1, inter2, step);
 			append_interval_into_file(fname, inter1, inter2, step);
 			printf("Интервал добавлен в файл %s\n", fname);
 			break;
@@ -89,8 +85,8 @@ int main()
 			}
 
 			printf("\t\tМетод средних п-угольников:\n");
-			double TT2 = integral(intmd1, intmd2);
-			printf("Определённый интеграл на интервале [%.3lf:%.3lf] равен== %lf\n", intmd1, intmd2, TT2);
+			double Result_integral = integral(intmd1, intmd2);
+			printf("Определённый интеграл на интервале [%.3lf:%.3lf] равен== %lf\n", intmd1, intmd2, Result_integral);
 			break;
 
 
